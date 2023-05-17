@@ -42,7 +42,7 @@ public class CustomerService {
         List<Customer> customerList = customerRepo.findAll();
         return modelMapper.map(customerList, new TypeToken<ArrayList<CustomerDTO>>(){}.getType());
     }
-    public CustomerDTO searchCustomer(Integer id){
+    public CustomerDTO searchCustomer(int id){
         if (customerRepo.existsById(id)){
             Customer customer = customerRepo.findById(id).orElse(null);
             return modelMapper.map(customer, CustomerDTO.class);
